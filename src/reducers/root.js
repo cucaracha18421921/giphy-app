@@ -25,27 +25,8 @@ export function requestGiphy(state={},action){
   }
 }
 
-// export function selectChampionPerSeason(state={'champions':{}},action){
-//   switch(action && action.type){
-//     case REQUEST_SEASON_CHAMPION:
-//       return action.message;
-//     case RECEIVE_SEASON_CHAMPION:
-//       const champions = state.champions || {};
-//       champions[action.season] = {
-//         champion:action.champion,
-//         numberOfCircuits:action.numberOfCircuits};
-//       return {champions};
-//     case RECEIVE_SEASON_CHAMPION_ERROR:
-//       return action.message;
-//     default:
-//       return state;
-//   }
-// }
-
 const rootReducer = combineReducers({
   searchGiphy,
-  requestGiphy
-  // selectChampionPerSeason
 });
 
 export default rootReducer;
