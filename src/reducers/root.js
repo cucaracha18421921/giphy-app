@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import {RECEIVE_GIFS, RECEIVE_GIFS_ERROR, REQUEST_SEARCH} from "../actions/allActions";
 
+//Search Giphy can have two out comes receive results (RECEIVE_GIFS), error (RECEIVE_GIFS_ERROR)
 export function searchGiphy(state={},action){
   switch(action && action.type){
     case RECEIVE_GIFS:
@@ -10,16 +11,17 @@ export function searchGiphy(state={},action){
       }
       return { gifs:receivedGifs ,pagination:action.pagination};
     case RECEIVE_GIFS_ERROR:
-      return action.message;
+      return {error:action.message};
     default:
       return state;
   }
 }
 
+//Request Giphy. While new data is coming render a requesting... message
 export function requestGiphy(state={},action){
   switch(action && action.type) {
     case REQUEST_SEARCH:
-      return action.message;
+      return {message: action.message};
     default:
       return state;
   }
@@ -27,6 +29,7 @@ export function requestGiphy(state={},action){
 
 const rootReducer = combineReducers({
   searchGiphy,
+  requestGiphy
 });
 
 export default rootReducer;
